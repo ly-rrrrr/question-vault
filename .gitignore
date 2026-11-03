@@ -1,0 +1,35 @@
+# Editor and agent state
+.claude/
+.codex/
+.agents/
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Local runtime and generated files
+**/node_modules/
+cloud/dist/
+cloud/.next/
+cloud/.vinext/
+cloud/.wrangler/
+cloud/.sites-runtime/
+cloud/outputs/
+cloud/work/
+cloud/next-env.d.ts
+cloud/*.tsbuildinfo
+coverage/
+
+# Secrets and deployment-specific identity
+.env
+.env.*
+*.pem
+*.key
+cloud/.dev.vars*
+cloud/.openai/hosting.json
+
+# Logs and publication archives
+*.log
+*.tar.gz

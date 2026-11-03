@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#ffffff" />
+    <title>题库知识库</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M6 3.75h9.5A2.5 2.5 0 0 1 18 6.25v14H8.5A2.5 2.5 0 0 1 6 17.75v-14Z"/><path d="M6 17.75a2.5 2.5 0 0 1 2.5-2.5H18M9.5 7.5h5M9.5 10.5h4"/></svg>
+          </span>
+          <div><strong>题库</strong><small>本地知识库</small></div>
+        </div>
+
+        <nav class="nav-list" aria-label="主导航">
+          <button class="nav-item active" data-view="papers">
+            <svg viewBox="0 0 24 24"><path d="M4 6.5A2.5 2.5 0 0 1 6.5 4H10l2 2h5.5A2.5 2.5 0 0 1 20 8.5v8A2.5 2.5 0 0 1 17.5 19h-11A2.5 2.5 0 0 1 4 16.5v-10Z"/></svg>
+            模拟卷
+          </button>
+          <button class="nav-item" data-view="all-questions">
+            <svg viewBox="0 0 24 24"><path d="M7 3.75h8.5A2.5 2.5 0 0 1 18 6.25v14.5l-3-2-3 2-3-2-3 2V4.75A1 1 0 0 1 7 3.75Z"/><path d="M9 8h6M9 11.5h5"/></svg>
+            全部题目
+          </button>
+        </nav>
+
+        <div class="sidebar-section">
+          <div class="section-title"><span>最近模拟卷</span><button id="quickAddPaper" class="icon-btn" title="新建模拟卷">+</button></div>
+          <div id="recentPapers" class="recent-list"></div>
+        </div>
+
+        <div class="sidebar-footer">
+          <button id="exportBtn" class="quiet-btn">导出备份</button>
+          <label class="quiet-btn file-label">导入备份<input id="importInput" type="file" accept="application/json" /></label>
+        </div>
+      </aside>
+
+      <main class="main">
+        <header class="topbar">
+          <div class="search-wrap">
+            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4 4"/></svg>
+            <input id="globalSearch" type="search" placeholder="搜索模拟卷、来源或答案内容…" />
+            <kbd>Ctrl K</kbd>
+          </div>
+          <button id="primaryAction" class="primary-btn">+  新建模拟卷</button>
+        </header>
+
+        <div id="content" class="content" aria-live="polite"></div>
+      </main>
+    </div>
+
+    <div id="modal" class="modal" hidden>
+      <div class="modal-backdrop" data-close-modal></div>
+      <section class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <div class="modal-head"><h2 id="modalTitle"></h2><button class="close-btn" data-close-modal aria-label="关闭">&times;</button></div>
+        <div id="modalBody"></div>
+      </section>
+    </div>
+
+    <div id="imageViewer" class="image-viewer" hidden>
+      <button class="viewer-close" aria-label="关闭">&times;</button>
+      <img alt="大图预览" />
+    </div>
+
+    <div id="toast" class="toast" role="status"></div>
+    <script src="app.js"></script>
+  </body>
+</html>
